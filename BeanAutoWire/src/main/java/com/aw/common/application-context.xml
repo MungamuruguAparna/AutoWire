@@ -3,10 +3,15 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-<bean id="cab" class="com.aw.beans.Cab" autowire="byName"></bean>
+<bean id="cab" class="com.aw.beans.Cab" autowire="byType"></bean>
 
 <bean id="driver" class="com.aw.beans.Driver">
 <property name="contactNo" value="458221"></property>
 <property name="name" value="smit"></property>
 </bean>
+<bean id="driver1" class="com.aw.beans.Driver" autowire-candidate="false">
+<property name="contactNo" value="458221"></property>
+<property name="name" value="smit"></property>
+</bean>
+
 </beans>
