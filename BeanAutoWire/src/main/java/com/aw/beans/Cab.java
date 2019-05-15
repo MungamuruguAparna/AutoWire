@@ -1,10 +1,19 @@
 package com.aw.beans;
 
-public class Cab {
-	private Driver driver;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
-	public Driver getDriver() {
-		return driver;
+@Component("cab")
+public class Cab {
+	@Autowired
+	@Qualifier("driver1")
+	private Driver driver;
+	@Autowired
+	private Ride ride;
+	
+	public void setRide(Ride ride) {
+		this.ride = ride;
 	}
 
 	public void setDriver(Driver driver) {
@@ -13,7 +22,7 @@ public class Cab {
 
 	@Override
 	public String toString() {
-		return "Cab [driver=" + driver + "]";
+		return "Cab [driver=" + driver + ", ride=" + ride + "]";
 	}
 	
 	
